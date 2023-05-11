@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Word Meaning
+{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-12 text-center">
+        <p>Type your word below for meaning</p>
+        <form action="/word_meaning" method="post">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="word_meaning" name="word_meaning" placeholder="Enter Your word" type="text">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+        <p>{{ word_meaning }}</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+      <div class="row">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../static/carousel1.png" class="d-block mx-auto w-70 img-fluid" alt="..."/>
+          </div>
+          <div class="carousel-item">
+            <img src="../static/carousel2.png" class="d-block mx-auto w-70 img-fluid" alt="..."/>
+          </div>
+          <div class="carousel-item">
+            <img src="../static/carousel3.png" class="d-block mx-auto w-70 img-fluid" alt="..."/>
+          </div>
+          <div class="carousel-item">
+            <img src="../static/carousel4.png" class="d-block mx-auto w-70 img-fluid" alt="..."/>
+          </div>
+          <div class="carousel-item">
+            <img src="../static/carousel5.png" class="d-block mx-auto w-70 img-fluid" alt="..."/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h1 class="text-center py-3" id="get_started">I am looking for...</h1>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-2 text-center">
+          <form action="/word_meaning" method="get">
+            <div class="d-inline-block">
+              <button class="btn btn-primary" type="submit">Word Meaning</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-2 text-center">
+          <form action="/synonym" method="get">
+            <div class="d-inline-block">
+              <button class="btn btn-primary" type="submit">Synonym</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-2 text-center">
+          <form action="/antonym" method="get">
+            <div class="d-inline-block">
+              <button class="btn btn-primary" type="submit">Antonym</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-2 text-center">
+          <form action="/translation" method="get">
+            <div class="d-inline-block">
+              <button class="btn btn-primary" type="submit">Translation</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h1 class="text-center py-3" id="get_started">About the Project</h1>
+    </div>
+    {% endblock %}

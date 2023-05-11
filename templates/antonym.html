@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Antonym
+{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-12 text-center">
+        <p>Type your word below for antonym</p>
+        <form action="/antonym" method="post">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="antonym" name="antonym" placeholder="Enter Your word" type="text">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+        <p>{{ antonym }}</p>
+    </div>
+</div>
+{% endblock %}
