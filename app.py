@@ -59,3 +59,8 @@ def translation():
         return render_template("translation.html", translation=translation)
     else:
         return render_template("translation.html")
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")

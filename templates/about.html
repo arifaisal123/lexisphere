@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block main %}
+<div class="row">
+    <div class="col-12 d-flex flex-column">
+        <h1 class="fs-3">About LexiSphere</h1>
+        <p class="fs-12px">
+            LexiSphere web app, developed by <a href="https://arifaisal123.github.io">Arif Faisal</a>, allows you to search for word meanings, synonyms, antonyms, and even translations to different languages. 
+            The project is intended to be used for educational and non-commercial purposes only. The app functions by using PyMultiDictionary module
+            in the backend, which utilizes educalingo.com, synonym.com, thesaurus, and wordnet for providing its services.
+        <h2 class="fs-4">Supported Languages</h2>
+        <ul class="fs-12px">
+            <li>Bengali (bn)</li>
+            <li>German (de)</li>
+            <li>English (en)</li>
+            <li>Spanish (es)</li>
+            <li>French (fr)</li>
+            <li>Hindi (hi)</li>
+            <li>Italian (it)</li>
+            <li>Japanese (ja)</li>
+            <li>Javanese (jv)</li>
+            <li>Korean (ko)</li>
+            <li>Marathi (mr)</li>
+            <li>Malay (ms)</li>
+            <li>Polish (pl)</li>
+            <li>Portuguese (pt)</li>
+            <li>Romanian (ro)</li>
+            <li>Russian (ru)</li>
+            <li>Tamil (ta)</li>
+            <li>Turkish (tr)</li>
+            <li>Ukranian (uk)</li>
+            <li>Chinese (zh)</li>
+        </ul>
+        <h2 class="fs-4">Report Bugs</h2> 
+        <p class="fs-12px">While using the app, if you experience any unexpected or unintended results, you can report bugs <a href="https://arifaisal123.github.io/contact.html">here</a>.</p>   
+    </div>
+</div>
+{% endblock %}
