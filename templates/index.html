@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-      <div class="row">
+      <div class="row my-4">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -32,41 +32,40 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <h1 class="text-center py-3" id="get_started">I am looking for...</h1>
+      <div class="body-container d-flex flex-column align-items-center">
+        <div class="row">
+          <h1 class="mt-3 py-3" id="get_started">I am looking for...</h1>
+        </div>
+        <div class="row d-flex flex-column align-items-center justify-content-center gap-3">
+          <div class="col-12">
+            <form action="/word_meaning" method="get">
+              <div class="">
+                <button class="btn bg-color-dark-blue w-200 text-white py-2" type="submit">Word Meaning</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-12">
+            <form action="/synonym" method="get">
+              <div class="">
+                <button class="btn bg-color-dark-blue w-200 text-white py-2" type="submit">Synonym</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-12">
+            <form action="/antonym" method="get">
+              <div class="">
+                <button class="btn bg-color-dark-blue w-200 text-white py-2" type="submit">Antonym</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-12">
+            <form action="/translation" method="get">
+              <div class="">
+                <button class="btn bg-color-dark-blue w-200 text-white py-2" type="submit">Translation</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-2 text-center">
-          <form action="/word_meaning" method="get">
-            <div class="d-inline-block">
-              <button class="btn btn-primary" type="submit">Word Meaning</button>
-            </div>
-          </form>
-        </div>
-        <div class="col-2 text-center">
-          <form action="/synonym" method="get">
-            <div class="d-inline-block">
-              <button class="btn btn-primary" type="submit">Synonym</button>
-            </div>
-          </form>
-        </div>
-        <div class="col-2 text-center">
-          <form action="/antonym" method="get">
-            <div class="d-inline-block">
-              <button class="btn btn-primary" type="submit">Antonym</button>
-            </div>
-          </form>
-        </div>
-        <div class="col-2 text-center">
-          <form action="/translation" method="get">
-            <div class="d-inline-block">
-              <button class="btn btn-primary" type="submit">Translation</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <h1 class="text-center py-3" id="get_started">About the Project</h1>
     </div>
     {% endblock %}

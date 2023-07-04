@@ -1,6 +1,8 @@
 from flask import Flask, redirect, render_template, request
 from translate import Translator
 from PyMultiDictionary import MultiDictionary, DICT_WORDNET, DICT_THESAURUS
+import requests
+import json
 
 # Configure application
 app = Flask(__name__)
@@ -30,7 +32,7 @@ def word_meaning():
 def synonym():
     if request.method == "POST":
         word = request.form["synonym"]
-        synonym = dictionary.synonym('en', word, dictionary=DICT_THESAURUS)
+        synonym = dictionary.synonym("en", word)
         return render_template("synonym.html", synonym=synonym)
     else:
         return render_template("synonym.html")

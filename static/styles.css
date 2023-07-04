@@ -6,3 +6,49 @@
     background-color: #000;
   }
 
+.w-10 {
+  width: 10px;
+} 
+
+.w-200 {
+  width: 300px;
+}
+
+.bg-color-dark-blue {
+  background-color: #324376;
+}
+
+.border-top-black {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.row .col-12 form div button:hover, .row .col-12 form div button:active {
+  cursor: pointer;
+  background-color: #4785FF;
+  color: #fff;
+}
+
+.container-fluid .row .navbar #navbarNav ul li a:hover, .container-fluid .row .navbar #navbarNav ul li a {
+  border-radius: 3px;
+}
+
+.container-fluid .row .navbar #navbarNav ul li a:hover, .container-fluid .row .navbar #navbarNav ul li a:active {
+  background-color: #324376;
+  color: #fff;
+}
+
+.container-fluid .row .navbar-toggler:focus {
+  color: #324376;
+}
+
+.fs-10px {
+  font-size: 10px;
+}
+
+.w-16 {
+  width: 16px;
+}
+
+.h-16 {
+  height: 16px;
+}

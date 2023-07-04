@@ -10,15 +10,15 @@
     <script defer src="../static/fontawesome.js"></script>
   </head>
   <body>
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mx-1">
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
-              <a class="navbar-brand" href="/"><img src="../static/logo.png" alt="logo" class="w-50"></a>
+              <a class="navbar-brand col-5" href="/"><img src="../static/logo.png" alt="logo" class="w-100 img-fluid"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav text-center mt-1">
                   <li class="nav-item active">
                     <a class="nav-link" href="/">Home</a>
                   </li>
@@ -36,77 +36,84 @@
             </nav>
           </div>
         {% block main %}{% endblock %}
-    <footer class="bg-light text-center text-white">
-      <!-- Grid container -->
-      <div class="container p-4 pb-0">
-        <!-- Section: Social media -->
-        <section class="mb-4">
-          <!-- Facebook -->
-          <a
-            class="btn text-white btn-floating m-1"
-            style="background-color: #3b5998;"
-            href="https://www.facebook.com/arif.iba"
-            role="button"
-            target="_blank"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-    
-          <!-- Twitter -->
-          <a
-            class="btn text-white btn-floating m-1"
-            style="background-color: #55acee;"
-            href="https://twitter.com/arifaisal123"
-            role="button"
-            target="_blank"
-            ><i class="fab fa-twitter"></i
-          ></a>
-    
-          <!-- Google -->
-          <a
-            class="btn text-white btn-floating m-1"
-            style="background-color: #dd4b39;"
-            href="mailto:arifaisal123@gmail.com"
-            role="button"
-            target="_blank"
-            ><i class="fab fa-google"></i
-          ></a>
-    
-          <!-- Instagram -->
-          <a
-            class="btn text-white btn-floating m-1"
-            style="background-color: #ac2bac;"
-            href="https://www.instagram.com/arifaisal123"
-            role="button"
-            target="_blank"
-            ><i class="fab fa-instagram"></i
-          ></a>
-    
-          <!-- Linkedin -->
-          <a
-            class="btn text-white btn-floating m-1"
-            style="background-color: #0082ca;"
-            href="https://www.linkedin.com/in/arifaisal123"
-            role="button"
-            target="_blank"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
-          <!-- Github -->
-          <a
-            class="btn text-white btn-floating m-1"
-            style="background-color: #333333;"
-            href="https://github.com/arifaisal123"
-            role="button"
-            target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
-        </section>
-        <!-- Section: Social media -->
+    <footer class="bg-light text-center text-white mt-5 border-top-black">
+      <!-- Container -->
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Section: Social media -->
+          <section class="my-4">
+            <!-- Facebook -->
+            <a
+              class="text-white m-1 p-1 px-2 rounded-1"
+              style="background-color: #3b5998;"
+              href="https://www.facebook.com/faisal.codes.8/"
+              role="button"
+              target="_blank"
+              ><i class="fab fa-facebook-f w-16 h-16"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a
+              class="text-white m-1 p-1 px-2 rounded-1"
+              style="background-color: #55acee;"
+              href="https://twitter.com/faisalcodes123"
+              role="button"
+              target="_blank"
+              ><i class="fab fa-twitter w-16 h-16"></i
+            ></a>
+      
+            <!-- Google -->
+            <a
+              class="text-white m-1 p-1 px-2 rounded-1"
+              style="background-color: #dd4b39;"
+              href="mailto:arifaisal123@gmail.com"
+              role="button"
+              target="_blank"
+              ><i class="fab fa-google w-16 h-16"></i
+            ></a>
+
+            <!-- Youtube -->
+            <a
+              class="text-white m-1 p-1 px-2 rounded-1"
+              style="background-color: #FF0000;"
+              href="https://youtube.com/@faisalcodes123"
+              role="button"
+              target="_blank"
+              ><i class="fab fa-youtube w-16 h-16"></i
+            ></a>
+        
+            <!-- Linkedin -->
+            <a
+              class="text-white m-1 p-1 px-2 rounded-1"
+              style="background-color: #0082ca;"
+              href="https://www.linkedin.com/in/arifaisal123"
+              role="button"
+              target="_blank"
+              ><i class="fab fa-linkedin-in w-16 h-16"></i
+            ></a>
+            <!-- Github -->
+            <a
+              class="text-white m-1 p-1 px-2 rounded-1"
+              style="background-color: #333333;"
+              href="https://github.com/arifaisal123"
+              role="button"
+              target="_blank"
+              ><i class="fab fa-github w-16 h-16"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+          <ul class="list-unstyled text-black d-flex justify-content-center gap-3">
+            <li><a>About</a></li>
+            <li><a>Credits</a></li>
+            <li><a>Contact</a></li>
+            <li><a>Disclaimer</a></li>
+          </ul>
+        </div>
       </div>
-      <!-- Grid container -->
-    
+      <!-- Container -->
       <!-- Copyright -->
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        Copyright © 2023, Arif Faisal. All Rights Reserved.
+      <div class="text-center text-black mx-3">
+        Copyright © 2023, <a href="https://arifaisal123.github.io">Arif Faisal</a>. All Rights Reserved.
       </div>
       <!-- Copyright -->
     </footer>
