@@ -68,3 +68,7 @@ def about():
 @app.route("/disclaimer")
 def disclaimer():
     return render_template("disclaimer.html")
+
+@app.route("/credits")
+def credits():
+    return render_template("credits.html")
