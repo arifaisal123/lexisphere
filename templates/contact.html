@@ -8,18 +8,18 @@
 <div class="row">
     <div class="col-12 d-flex flex-column align-items-center mt-3">
         <h1 class="fs-3">Contact Us</h1>
-        <p class="fs-12px">If you have any suggestions, questions, or want to report any bugs, please use the form below.</p>
+        <p class="fs-12px px-4 text-center">If you have any suggestions, questions, or want to report any bugs, please use the form below.</p>
         <form action="/sendform" method="post" class="d-flex flex-column align-items-center" id="contactForm">
-            <label for="name">Name: </label>
+            <label for="name" class="fs-15px py-2">Name: </label>
             <input type="text" id="name" name="name">
             <p class="text-danger fst-italic fs-12px" id="nameError">Please enter your name.</p>
-            <label for="email">Email: </label>
+            <label for="email" class="fs-15px py-2">Email: </label>
             <input type="email" id="email" name="email">
             <p class="text-danger fst-italic fs-12px" id="emailError">Please enter a valid email address.</p>
-            <label for="message">Message: </label>
+            <label for="message" class="fs-15px py-2">Message: </label>
             <textarea id="message" name="message"></textarea>
             <p class="text-danger fst-italic fs-12px" id="messageError">Message cannot be blank.</p>
-            <button class="btn btn-primary" id="submit" type="submit" value="Submit">Submit</button>
+            <button class="btn btn-primary mt-3" id="submit" type="submit" value="Submit">Submit</button>
         </form>
     </div>
 </div>
