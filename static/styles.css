@@ -109,3 +109,15 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+.row .col-12 #contactForm #nameError {
+  display: none;
+}
+
+.row .col-12 #contactForm #emailError {
+  display: none;
+}
+
+.row .col-12 #contactForm #messageError {
+  display: none;
+}

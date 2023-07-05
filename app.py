@@ -65,10 +65,18 @@ def translation():
 def about():
     return render_template("about.html")
 
-@app.route("/disclaimer")
-def disclaimer():
-    return render_template("disclaimer.html")
-
 @app.route("/credits")
 def credits():
     return render_template("credits.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+@app.route("/sendform", methods=["GET", "POST"])
+def sendform():
+    return render_template("sendform.html")
+
+@app.route("/disclaimer")
+def disclaimer():
+    return render_template("disclaimer.html")
