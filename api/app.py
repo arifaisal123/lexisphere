@@ -40,7 +40,13 @@ def synonym():
     if request.method == "POST":
         word = request.form["synonym"]
         synonym = dictionary.synonym("en", word)
-        return render_template("synonym.html", synonym=synonym)
+
+        if not synonym:
+            is_empty = True
+        else:
+            is_empty = False
+
+        return render_template("synonym.html", word=word, synonym=synonym, is_empty=is_empty)
     else:
         return render_template("synonym.html")
     
