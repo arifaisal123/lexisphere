@@ -6,13 +6,13 @@
 
 {% block main %}
 <div class="row mb-custom-600px">
-    <div class="col-12 text-center">
+    <div class="col-12 text-center mt-3">
         <p>Type your word below to generate word meanings</p>
         <form action="/word_meaning" method="post">
-            <div class="col-3 mx-auto">
+            <div class="col-7 mx-auto">
                 <input autocomplete="off" autofocus class="form-control mx-auto" id="word_meaning" name="word_meaning" placeholder="Enter your word..." type="text">
             </div>            
-            <button class="btn bg-color-dark-blue custom-btn-hover text-white my-3 mb-2 col-3" type="submit">Submit</button>
+            <button class="btn bg-color-dark-blue custom-btn-hover text-white my-3 mb-2 col-7" type="submit">Submit</button>
         </form>
         {% if not is_empty and word_meaning %}
         <div class="col-3 mx-auto mb-5">
