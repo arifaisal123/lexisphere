@@ -14,7 +14,7 @@
             </div>            
             <button class="btn bg-color-dark-blue custom-btn-hover text-white my-3 mb-2 col-3" type="submit">Submit</button>
         </form>
-        {% if word_meaning %}
+        {% if not is_empty and word_meaning %}
         <div class="col-3 mx-auto mb-5">
             <a href="/synonym" class="mx-2 color-dark-blue color-dark-blue-hover text-decoration-none">Synonym</a>
             <a href="/antonym" class="mx-2 color-dark-blue color-dark-blue-hover text-decoration-none">Antonym</a>
@@ -42,6 +42,8 @@
             {% endfor %}
             </tbody>
         </table>
+        {% elif is_empty %}
+            <p>No result is found!</p>
         {% endif %}
     </div>
 </div>

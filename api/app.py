@@ -24,7 +24,13 @@ def word_meaning():
         word = request.form["word_meaning"]
         word_meaning = dictionary.meaning('en', word, dictionary=DICT_WORDNET)
 
-        return render_template("word_meaning.html", word_meaning=word_meaning)
+        try:
+            if not word_meaning[0]:
+                is_empty = True
+        except:
+            is_empty = False
+
+        return render_template("word_meaning.html", word_meaning=word_meaning, is_empty=is_empty)
     else:
         return render_template("word_meaning.html")
 
