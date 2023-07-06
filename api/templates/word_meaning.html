@@ -29,12 +29,12 @@
               </tr>
             </thead>
             <tbody>
-            {% for key in word_meaning %}
+            {% for key, value in word_meaning.items() %}
               <tr>                
-                <th class="col-1">0</th>
+                <th class="col-1">{{ loop.index }}</th>
                 <td class="col-3">{{ key }}</td>
                 <td class="col-8 text-start">
-                    {% for meaning in word_meaning[key] %}
+                    {% for meaning in value %}
                         <li>{{ meaning }}</li>
                     {% endfor %}
                 </td>
