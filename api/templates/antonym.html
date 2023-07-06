@@ -9,10 +9,42 @@
     <div class="col-12 text-center">
         <p>Type your word below for antonym</p>
         <form action="/antonym" method="post">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="antonym" name="antonym" placeholder="Enter Your word" type="text">
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <div class="col-7 mx-auto">
+                <input autocomplete="off" autofocus class="form-control mx-auto" id="antonym" name="antonym" placeholder="Enter your word..." type="text">
+            </div>    
+            <button class="btn bg-color-dark-blue custom-btn-hover text-white my-3 mb-2 col-7" type="submit">Submit</button>
         </form>
-        <p>{{ antonym }}</p>
+        {% if not is_empty and antonym %}
+        <div class="col-3 mx-auto mb-5">
+            <a href="/synonym" class="mx-2 color-dark-blue color-dark-blue-hover text-decoration-none">Synonym</a>
+            <a href="/translation" class="mx-2 color-dark-blue color-dark-blue-hover text-decoration-none">Translation</a>
+            <a href="/word_meaning" class="mx-2 color-dark-blue color-dark-blue-hover text-decoration-none">Word Meaning</a>
+        </div>
+        <table class="table">
+            <thead>
+              <tr class="table-primary">
+                <th scope="col-1">#</th>
+                <th scope="col-3">Word</th>
+                <th scope="col-8">Antonym</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>                
+                <th class="col-1">1</th>
+                <td class="col-3">{{ word }}</td>
+                <td class="col-8 text-start">
+                    <ul>
+                        {% for ant_word in antonym %}
+                        <li>{{ ant_word }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+        {% elif is_empty %}
+            <p>No result is found!</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

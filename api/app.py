@@ -56,7 +56,13 @@ def antonym():
     if request.method == "POST":
         word = request.form["antonym"]
         antonym = dictionary.antonym('en', word)
-        return render_template("antonym.html", antonym=antonym)
+
+        if not antonym:
+            is_empty = True
+        else:
+            is_empty = False
+
+        return render_template("antonym.html", word=word, antonym=antonym, is_empty=is_empty)
     else:
         return render_template("antonym.html")
     
