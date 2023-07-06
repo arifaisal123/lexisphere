@@ -18,6 +18,15 @@
   background-color: #324376;
 }
 
+.color-dark-blue {
+  color: #324376;
+}
+
+.color-dark-blue-hover:hover {
+  color: #7085c3;
+  text-decoration: underline !important;
+}
+
 .border-top-black {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -26,6 +35,10 @@
   cursor: pointer;
   background-color: #4785FF;
   color: #fff;
+}
+
+.custom-btn-hover:hover{
+  background-color: #4785FF;
 }
 
 .container-fluid .row .navbar #navbarNav ul li a:hover, .container-fluid .row .navbar #navbarNav ul li a {

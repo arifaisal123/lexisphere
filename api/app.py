@@ -23,6 +23,7 @@ def word_meaning():
     if request.method == "POST":
         word = request.form["word_meaning"]
         word_meaning = dictionary.meaning('en', word, dictionary=DICT_WORDNET)
+
         return render_template("word_meaning.html", word_meaning=word_meaning)
     else:
         return render_template("word_meaning.html")

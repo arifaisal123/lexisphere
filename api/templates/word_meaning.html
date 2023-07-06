@@ -7,12 +7,42 @@
 {% block main %}
 <div class="row mb-custom-600px">
     <div class="col-12 text-center">
-        <p>Type your word below for meaning</p>
+        <p>Type your word below to generate word meanings</p>
         <form action="/word_meaning" method="post">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="word_meaning" name="word_meaning" placeholder="Enter Your word" type="text">
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <div class="col-3 mx-auto">
+                <input autocomplete="off" autofocus class="form-control mx-auto" id="word_meaning" name="word_meaning" placeholder="Enter your word..." type="text">
+            </div>            
+            <button class="btn bg-color-dark-blue custom-btn-hover text-white my-3 mb-2 col-3" type="submit">Submit</button>
         </form>
-        <p>{{ word_meaning }}</p>
+        {% if word_meaning %}
+        <div class="col-3 mx-auto mb-5">
+            <a href="/synonym" class="mx-2 color-dark-blue color-dark-blue-hover text-decoration-none">Synonym</a>
+            <a href="/antonym" class="mx-2 color-dark-blue color-dark-blue-hover text-decoration-none">Antonym</a>
+            <a href="/word_meaning" class="mx-2 color-dark-blue color-dark-blue-hover text-decoration-none">Translation</a>
+        </div>
+        <table class="table">
+            <thead>
+              <tr class="table-primary">
+                <th scope="col-1">#</th>
+                <th scope="col-3">Type</th>
+                <th scope="col-8">Word Meanings</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for key in word_meaning %}
+              <tr>                
+                <th class="col-1">0</th>
+                <td class="col-3">{{ key }}</td>
+                <td class="col-8 text-start">
+                    {% for meaning in word_meaning[key] %}
+                        <li>{{ meaning }}</li>
+                    {% endfor %}
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
