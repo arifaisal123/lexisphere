@@ -75,7 +75,8 @@ def translation():
 
         translator= Translator(to_lang=lang)
         translation = translator.translate(text)
-        return render_template("translation.html", translation=translation)
+        translation2 = dictionary.translate("bn", text, "en")
+        return render_template("translation.html", translation=translation, translation2=translation2)
     else:
         return render_template("translation.html")
 
