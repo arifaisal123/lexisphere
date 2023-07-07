@@ -170,3 +170,7 @@
 .mb-custom-600px {
   margin-bottom: 600px;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
