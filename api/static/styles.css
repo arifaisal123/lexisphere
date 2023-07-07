@@ -147,6 +147,10 @@
   margin-bottom: 100px;
 }
 
+.mb-custom-200px {
+  margin-bottom: 200px;
+}
+
 .mb-custom-245px {
   margin-bottom: 245px;
 }
@@ -156,6 +160,10 @@
 }
 
 .mb-custom-450px {
+  margin-bottom: 450px;
+}
+
+.mb-custom-520px {
   margin-bottom: 450px;
 }
 
