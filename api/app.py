@@ -1,6 +1,6 @@
 from flask import Flask, redirect, render_template, request
-from translate import Translator
 from PyMultiDictionary import MultiDictionary, DICT_WORDNET, DICT_THESAURUS
+from googletrans import Translator
 import requests
 import json
 
@@ -73,10 +73,11 @@ def translation():
         lang = request.form["language"]
         text = request.form["translation"]
 
-        translator= Translator(to_lang=lang)
-        translation = translator.translate(text)
-        translation2 = dictionary.translate("bn", text, "en")
-        return render_template("translation.html", translation=translation, translation2=translation2)
+        translator = Translator()
+        translation = translator.translate(text, dest=lang)
+        translated_text = translation.text
+       
+        return render_template("translation.html", translated_text=translated_text)
     else:
         return render_template("translation.html")
 
