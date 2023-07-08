@@ -2,7 +2,6 @@ from __future__ import print_function
 import sib_api_v3_sdk
 from sib_api_v3_sdk.rest import ApiException
 from flask import Flask, redirect, render_template, request
-from dotenv import load_dotenv
 from PyMultiDictionary import MultiDictionary, DICT_WORDNET, DICT_THESAURUS
 from googletrans import Translator
 import requests

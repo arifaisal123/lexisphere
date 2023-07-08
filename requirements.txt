@@ -1,10 +1,8 @@
 future==0.18.3
 sib-api-v3-sdk==7.6.0
 flask==2.2.3
-python-dotenv==1.0.0
 PyMultiDictionary==1.2.3
 googletrans==3.1.0a0
 requests==2.31.0
 gTTS==2.3.2
 pygame==2.5.0
-PySDL2==0.9.16
