@@ -16,7 +16,7 @@ import pygame
 # Configure application
 app = Flask(__name__)
 
-load_dotenv("../.env")
+# load_dotenv("../.env")
 api_key = os.environ.get("API_KEY")
 owner_email = os.environ.get("OWNER_EMAIL")
 
