@@ -8,6 +8,9 @@ from googletrans import Translator
 import requests
 import json
 import os
+from gtts import gTTS
+import gtts
+import pygame
 
 # Configure application
 app = Flask(__name__)
@@ -79,12 +82,34 @@ def antonym():
 @app.route("/translation", methods=["GET", "POST"])
 def translation():
     if request.method == "POST":
-        lang = request.form["language"]
+        user_lang = request.form["language"][0:2]
+        user_tld = request.form["language"][2:]
+        if user_lang == "zh":
+            user_lang = "zh-cn"
+            user_tld = "cn"
         text = request.form["translation"]
 
         translator = Translator()
-        translation = translator.translate(text, dest=lang)
+        translation = translator.translate(text, dest=user_lang)
         translated_text = translation.text
+
+        try:
+            tts = gTTS(translated_text, lang=user_lang, tld=user_tld)
+        except:
+            tts = gTTS(translated_text, lang="en", tld="us")
+
+        filename="audio1.mp3"
+        tts.save(filename)
+        pygame.mixer.init()
+        pygame.mixer.music.load("audio1.mp3")
+        pygame.mixer.music.play()
+
+        while pygame.mixer.music.get_busy():
+            pygame.time.Clock().tick(10)
+        
+        pygame.mixer.quit()
+	    
+        os.remove(filename)
        
         return render_template("translation.html", translated_text=translated_text)
     else:
@@ -121,7 +146,7 @@ def contact():
             print(api_response)
         except ApiException as e:
             print("Exception when calling SMTPApi->send_transac_email: %s\n" % e)
-
+        
         return render_template("sendform.html")
     else:
         return render_template("contact.html")
@@ -129,3 +154,8 @@ def contact():
 @app.route("/disclaimer")
 def disclaimer():
     return render_template("disclaimer.html")
+
+def play_mp3(file_path):
+    pygame.mixer.init()
+    pygame.mixer.music.load(file_path)
+    pygame.mixer.music.play()
