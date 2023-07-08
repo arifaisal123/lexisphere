@@ -15,7 +15,6 @@ import pygame
 # Configure application
 app = Flask(__name__)
 
-# load_dotenv("../.env")
 api_key = os.environ.get("API_KEY")
 owner_email = os.environ.get("OWNER_EMAIL")
 
@@ -102,14 +101,14 @@ def translation():
         tts.write_to_fp(fp)
         fp.seek(0)
 
-        pygame.mixer.init()
-        pygame.mixer.music.load(fp)
-        pygame.mixer.music.play()
+        # pygame.mixer.init()
+        # pygame.mixer.music.load(fp)
+        # pygame.mixer.music.play()
 
-        while pygame.mixer.music.get_busy():
-            pygame.time.Clock().tick(10)
+        # while pygame.mixer.music.get_busy():
+        #     pygame.time.Clock().tick(10)
         
-        pygame.mixer.quit()
+        # pygame.mixer.quit()
        
         return render_template("translation.html", translated_text=translated_text)
     else:
