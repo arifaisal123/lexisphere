@@ -12,7 +12,7 @@ import os
 # Configure application
 app = Flask(__name__)
 
-# load_dotenv("../.env")
+load_dotenv("../.env")
 api_key = os.environ.get("API_KEY")
 owner_email = os.environ.get("OWNER_EMAIL")
 
@@ -112,11 +112,9 @@ def contact():
         api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
         subject = "Feedback from customer at lexisphere"
         sender = {"name":name,"email":email}
-        # replyTo = {"name":"Sendinblue","email":"contact@sendinblue.com"}
         html_content = f"<html><body>{message}</body></html>"
         to = [{"email": owner_email,"name":"Lexisphere"}]
-        # params = {"parameter":"My param value","subject":"New Subject"}
-        send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(to=to, bcc=bcc, cc=cc, reply_to=reply_to, headers=headers, html_content=html_content, sender=sender, subject=subject)
+        send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(to=to, html_content=html_content, sender=sender, subject=subject)
 
         try:
             api_response = api_instance.send_transac_email(send_smtp_email)
