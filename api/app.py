@@ -8,7 +8,6 @@ import requests
 import json
 import os
 from gtts import gTTS
-import gtts
 from io import BytesIO
 import pygame
 
@@ -97,18 +96,15 @@ def translation():
         except:
             tts = gTTS(translated_text, lang="en", tld="us")
 
-        fp = BytesIO()
-        tts.write_to_fp(fp)
-        fp.seek(0)
+        with BytesIO() as f:
+            tts.write_to_fp(f)
+            f.seek(0)
+            pygame.mixer.init()
+            pygame.mixer.music.load(f)
+            pygame.mixer.music.play()
 
-        # pygame.mixer.init()
-        # pygame.mixer.music.load(fp)
-        # pygame.mixer.music.play()
-
-        # while pygame.mixer.music.get_busy():
-        #     pygame.time.Clock().tick(10)
-        
-        # pygame.mixer.quit()
+            while pygame.mixer.music.get_busy():
+                continue
        
         return render_template("translation.html", translated_text=translated_text)
     else:
