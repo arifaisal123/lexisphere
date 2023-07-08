@@ -10,6 +10,7 @@ import json
 import os
 from gtts import gTTS
 import gtts
+from io import BytesIO
 import pygame
 
 # Configure application
@@ -98,18 +99,18 @@ def translation():
         except:
             tts = gTTS(translated_text, lang="en", tld="us")
 
-        filename="temp.mp3"
-        tts.save(filename)
+        fp = BytesIO()
+        tts.write_to_fp(fp)
+        fp.seek(0)
+
         pygame.mixer.init()
-        pygame.mixer.music.load("temp.mp3")
+        pygame.mixer.music.load(fp)
         pygame.mixer.music.play()
 
         while pygame.mixer.music.get_busy():
             pygame.time.Clock().tick(10)
         
         pygame.mixer.quit()
-	    
-        os.remove(filename)
        
         return render_template("translation.html", translated_text=translated_text)
     else:
@@ -154,8 +155,3 @@ def contact():
 @app.route("/disclaimer")
 def disclaimer():
     return render_template("disclaimer.html")
-
-def play_mp3(file_path):
-    pygame.mixer.init()
-    pygame.mixer.music.load(file_path)
-    pygame.mixer.music.play()
