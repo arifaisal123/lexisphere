@@ -98,10 +98,10 @@ def translation():
         except:
             tts = gTTS(translated_text, lang="en", tld="us")
 
-        filename="audio1.mp3"
+        filename="temp.mp3"
         tts.save(filename)
         pygame.mixer.init()
-        pygame.mixer.music.load("audio1.mp3")
+        pygame.mixer.music.load("temp.mp3")
         pygame.mixer.music.play()
 
         while pygame.mixer.music.get_busy():
