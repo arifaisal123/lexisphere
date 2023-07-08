@@ -1,11 +1,20 @@
+from __future__ import print_function
+import sib_api_v3_sdk
+from sib_api_v3_sdk.rest import ApiException
 from flask import Flask, redirect, render_template, request
+from dotenv import load_dotenv
 from PyMultiDictionary import MultiDictionary, DICT_WORDNET, DICT_THESAURUS
 from googletrans import Translator
 import requests
 import json
+import os
 
 # Configure application
 app = Flask(__name__)
+
+# load_dotenv("../.env")
+api_key = os.environ.get("API_KEY")
+owner_email = os.environ.get("OWNER_EMAIL")
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -90,14 +99,35 @@ def about():
 def credits():
     return render_template("credits.html")
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html")
+    if request.method == "POST":
+        name = request.form["name"]
+        email = request.form["email"]
+        message = request.form["message"]
 
-@app.route("/sendform", methods=["GET", "POST"])
-def sendform():
-    return render_template("sendform.html")
+        configuration = sib_api_v3_sdk.Configuration()
+        configuration.api_key['api-key'] = api_key
+        
+        api_instance = sib_api_v3_sdk.TransactionalEmailsApi(sib_api_v3_sdk.ApiClient(configuration))
+        subject = "Feedback from customer at lexisphere"
+        sender = {"name":name,"email":email}
+        # replyTo = {"name":"Sendinblue","email":"contact@sendinblue.com"}
+        html_content = f"<html><body>{message}</body></html>"
+        to = [{"email": owner_email,"name":"Lexisphere"}]
+        # params = {"parameter":"My param value","subject":"New Subject"}
+        send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(to=to, bcc=bcc, cc=cc, reply_to=reply_to, headers=headers, html_content=html_content, sender=sender, subject=subject)
 
+        try:
+            api_response = api_instance.send_transac_email(send_smtp_email)
+            print(api_response)
+        except ApiException as e:
+            print("Exception when calling SMTPApi->send_transac_email: %s\n" % e)
+
+        return render_template("sendform.html")
+    else:
+        return render_template("contact.html")
+  
 @app.route("/disclaimer")
 def disclaimer():
     return render_template("disclaimer.html")
